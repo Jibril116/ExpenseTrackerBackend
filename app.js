@@ -11,7 +11,11 @@ const PORT = process.env.PORT || 5000;
 
 // Middlewares
 app.use(express.json());
-app.use(cors());
+
+app.use(cors({
+    origin: 'http://localhost:3000', // Change this if your frontend uses a different port
+    credentials: true,
+}));
 
 app.get('/', (req, res) => {
     res.send('Welcome to the project  Backend!');
